@@ -37,7 +37,7 @@ public class ObstaclesSpawnEditor : Editor
             EditorGUI.indentLevel++;
             EditorGUILayout.BeginHorizontal();
             _obstacles.IsAreaThree = EditorGUILayout.Toggle("Use Area1", _obstacles.IsAreaThree);
-            if (GUILayout.Button("Area 1 object")) ChooseAreaObjects(1);
+            if (GUILayout.Button("Area 1 object")) ChooseAreaObjects(3);
             EditorGUILayout.EndHorizontal();
             if (_obstacles.ControlAreaThree && _obstacles.IsAreaThree)
             {
@@ -47,7 +47,7 @@ public class ObstaclesSpawnEditor : Editor
             }
             EditorGUILayout.BeginHorizontal();
             _obstacles.IsAreaOne = EditorGUILayout.Toggle("Use Area2", _obstacles.IsAreaOne);
-            if (GUILayout.Button("Area 2 object")) ChooseAreaObjects(3);
+            if (GUILayout.Button("Area 2 object")) ChooseAreaObjects(1);
             EditorGUILayout.EndHorizontal();
             if (_obstacles.ControlAreaOne && _obstacles.IsAreaOne)
             {

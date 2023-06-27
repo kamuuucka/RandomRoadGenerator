@@ -108,19 +108,6 @@ public class RoadAssetEditor : UnityEditor.Editor
                 SpawnPoints(0, -simpleZ, simpleX, zMinusLengthZ,
                     true, -simpleX, zMinusLengthZ);
                 break;
-            //PORTAL---------------------------------------------------------------------------------------------
-            case  RoadPoints.RoadType.Portal when roadRotation == 0:
-                SpawnPoints(-simpleX, 0, simpleX, 0);
-                break;
-            case  RoadPoints.RoadType.Portal when roadRotation == 90:
-                SpawnPoints(0, simpleZ, 0, -simpleZ);
-                break;
-            case  RoadPoints.RoadType.Portal when roadRotation == 180:
-                SpawnPoints(simpleX, 0, -simpleX, 0);
-                break;
-            case  RoadPoints.RoadType.Portal when roadRotation == 270:
-                SpawnPoints(0, -simpleZ, 0, simpleZ);
-                break;
         }
 
         foreach (var curve in _road.CurvePoints)

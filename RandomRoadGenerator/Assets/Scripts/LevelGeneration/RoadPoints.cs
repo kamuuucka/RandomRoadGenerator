@@ -12,9 +12,7 @@ public class RoadPoints : MonoBehaviour
         Straight = 1,
         Right = 2,
         Left = 3,
-        Crossroad = 4,
-        StraightEmpty = 5,
-        Portal = 6
+        Crossroad = 4
     };
 
     [SerializeField] private RoadType roadType;
@@ -22,18 +20,13 @@ public class RoadPoints : MonoBehaviour
     [SerializeField] private int length = 8;
     [SerializeField] private int curvePoints = 20;
     [SerializeField] private float specialOffset;
-    [SerializeField] private GameObject vfxObject;
-    [SerializeField] private LayerMask _playerLayer;
-    
-    [Range(0, 100)] [SerializeField] public float chance = 50;
-    public double _weight;
-    
+
     public int Width => width;
     public int Length => length;
     public RoadType TypeOfRoad => roadType;
 
-   /* [HideInInspector]*/ public List<Vector3> CurvePoints = new List<Vector3>();
-    /*[HideInInspector]*/ public List<Vector3> CurvePointsCross = new List<Vector3>();
+    [HideInInspector] public List<Vector3> CurvePoints = new List<Vector3>();
+    [HideInInspector] public List<Vector3> CurvePointsCross = new List<Vector3>();
 
     private Vector3 _assetStart;
     private Vector3 _assetEnd;
@@ -124,7 +117,6 @@ public class RoadPoints : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         Destroy(gameObject);
-        Instantiate(vfxObject, _assetEnd, Quaternion.identity);
         yield break;
     }
 
@@ -135,7 +127,6 @@ public class RoadPoints : MonoBehaviour
     /// <param name="zOffsetStart"> Offset of Z position of the start point</param>
     /// <param name="xOffsetEnd">   Offset of X position of the end point</param>
     /// <param name="zOffsetEnd">   Offset of Z position of the end point</param>
-    /// <param name="isCrossroad">  Bool to check if the road is a crossroad</param>
     /// <param name="curveOffsetX">  Offset of X position of the left point</param>
     /// <param name="curveOffsetZ">  Offset of Z position of the left point</param>
     /// <param name="spawnOneCurve"></param>
@@ -258,47 +249,8 @@ public class RoadPoints : MonoBehaviour
                      0, zMinusLengthZ, false, true,
                     -simpleX, zMinusLengthZ);
                 break;
-            //PORTAL---------------------------------------------------------------------------------------------
-            case RoadType.Portal when roadRotation == 0:
-                SpawnPoints(-simpleX, 0, simpleX, 0);
-                break;
-            case RoadType.Portal when roadRotation == 90:
-                SpawnPoints(0, simpleZ, 0, -simpleZ);
-                break;
-            case RoadType.Portal when roadRotation == 180:
-                SpawnPoints(simpleX, 0, -simpleX, 0);
-                break;
-            case RoadType.Portal when roadRotation == 270:
-                SpawnPoints(0, -simpleZ, 0, simpleZ);
-                break;
         }
     }
-
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //
-    //     if (_playerLayer == (_playerLayer | (1 << other.gameObject.layer)))
-    //     {
-    //         List<PlayerOnTrackState> pT = other.GetComponentsInSiblings<PlayerOnTrackState>(true);
-    //         if (pT.Count > 0)
-    //         {
-    //             for (int i = 0; i < pT.Count; i++)
-    //             {
-    //                 if (pT[i].Active)
-    //                 {
-    //                     pT[i].AddNewRoad(this);
-    //                 }
-    //             }
-    //         }
-    //     }
-    //
-    //     PlayerMovement p = other.GetComponent<PlayerMovement>();
-    //     if (p != null)
-    //     {
-    //         p.SetNewRoad(this);
-    //     }
-    // }
-
 
     private Vector3 CalculateBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
     {

@@ -1,9 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-
 [CustomEditor(typeof(RoadGenerator))]
-public class RoadGeneratorEditor : UnityEditor.Editor
+public class RoadGeneratorEditor : Editor
 {
     private RoadGenerator _generator;
     private bool _showHiddenFields;
@@ -18,10 +17,11 @@ public class RoadGeneratorEditor : UnityEditor.Editor
 
     public override void OnInspectorGUI()
     {
-        _roadPiecesRegistered = _generator.PortalVariants + _generator.StraightVariants + _generator.LeftVariants +
+        _roadPiecesRegistered = _generator.StraightVariants + _generator.LeftVariants +
                                 _generator.RightVariants + _generator.CrossRoadVariants + 1;
         
-        EditorGUILayout.HelpBox("Generator for the infinite road. Remember to add the road pieces to the list.",
+        EditorGUILayout.HelpBox("Generator for the infinite road. Remember to add the road pieces to the list.\n" +
+                                "Keep the generator at 0 Y.",
             MessageType.Info);
         EditorGUILayout.HelpBox("It is important to set up generator!\n" +
                                 "1. Empty straight road - starting piece\n" +
@@ -46,9 +46,6 @@ public class RoadGeneratorEditor : UnityEditor.Editor
         {
             ShowDebugFields();
         }
-        
-        
-
 
         if (_showHiddenFields)
         {
