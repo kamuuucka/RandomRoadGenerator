@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 [CustomEditor(typeof(RoadGenerator))]
@@ -17,8 +18,7 @@ public class RoadGeneratorEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        _roadPiecesRegistered = _generator.StraightVariants + _generator.LeftVariants +
-                                _generator.RightVariants + _generator.CrossRoadVariants + 1;
+       
         
         EditorGUILayout.HelpBox("Generator for the infinite road. Remember to add the road pieces to the list.\n" +
                                 "Keep the generator at 0 Y.",
@@ -29,19 +29,9 @@ public class RoadGeneratorEditor : Editor
                                 "3. Straights (pipes, obstacles, etc) \n" +
                                 "4. Lefts \n" +
                                 "5. Rights \n" +
-                                "6.CrossRoads \n" +
-                                "ALWAYS SPECIFY HOW MANY PIECES", MessageType.Warning);
+                                "6.CrossRoads \n", MessageType.Warning);
         base.OnInspectorGUI();
-        if (_generator.RoadPieces.Count == _roadPiecesRegistered)
-        {
-            _roadPiecesNumber = "Numbers are correct! ✔︎✔︎✔︎";
-        }
-        else
-        {
-            _roadPiecesNumber = "Fix your numbers! ✖︎✖︎✖︎";
-        }
-        EditorGUILayout.LabelField(_roadPiecesNumber, EditorStyles.centeredGreyMiniLabel);
-        
+
         if (GUILayout.Button("Show Debug"))
         {
             ShowDebugFields();
@@ -83,6 +73,12 @@ public class RoadGeneratorEditor : Editor
             EditorGUILayout.EndHorizontal();
 
             EditorGUI.indentLevel--;
+        }
+        
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(_generator);
+            EditorSceneManager.MarkSceneDirty(_generator.gameObject.scene);
         }
     }
 
