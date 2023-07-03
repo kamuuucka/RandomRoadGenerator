@@ -25,11 +25,10 @@ public class RoadGeneratorEditor : Editor
             MessageType.Info);
         EditorGUILayout.HelpBox("It is important to set up generator!\n" +
                                 "1. Empty straight road - starting piece\n" +
-                                "2. Portals \n" +
-                                "3. Straights (pipes, obstacles, etc) \n" +
-                                "4. Lefts \n" +
-                                "5. Rights \n" +
-                                "6.CrossRoads \n", MessageType.Warning);
+                                "2. Straights (pipes, obstacles, etc) \n" +
+                                "3. Lefts \n" +
+                                "4. Rights \n" +
+                                "5.CrossRoads", MessageType.Warning);
         base.OnInspectorGUI();
 
         if (GUILayout.Button("Show Debug"))
@@ -73,13 +72,15 @@ public class RoadGeneratorEditor : Editor
             EditorGUILayout.EndHorizontal();
 
             EditorGUI.indentLevel--;
+            
+            if (GUI.changed)
+            {
+                EditorUtility.SetDirty(_generator);
+                EditorSceneManager.MarkSceneDirty(_generator.gameObject.scene);
+            }
         }
         
-        if (GUI.changed)
-        {
-            EditorUtility.SetDirty(_generator);
-            EditorSceneManager.MarkSceneDirty(_generator.gameObject.scene);
-        }
+        
     }
 
     private void OnSceneGUI()

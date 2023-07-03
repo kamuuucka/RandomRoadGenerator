@@ -252,10 +252,6 @@ MonoBehaviour:
   - {fileID: 3078764591922711027, guid: 36838bdd64a7d436f9d26071f586d7ed, type: 3}
   - {fileID: 3078764591922711027, guid: 36838bdd64a7d436f9d26071f586d7ed, type: 3}
   - {fileID: 5085855924894188914, guid: 4120b4d64b1b64a79a6e3f18f5f85a97, type: 3}
-  straightVariants: 2
-  leftVariants: 3
-  rightVariants: 3
-  crossroadsVariants: 1
   DefaultRotationX: 0
   DefaultRotationY: 0
   DefaultRotationZ: 0
