@@ -49,7 +49,7 @@ Feel free to modify these variables according to your project requirements to cr
 
 ## Support
 
-If you encounter any issues or have any questions regarding the Random Road Generator tool, please feel free to [open an issue](https://github.com/your/repository/issues) on the GitHub repository page. I will do my best to assist you.
+If you encounter any issues or have any questions regarding the Random Road Generator tool, please feel free to [open an issue](https://github.com/kamuuucka/RandomRoadGenerator/issues) on the GitHub repository page. I will do my best to assist you.
 
 ## Contributing
 
@@ -61,5 +61,5 @@ The Random Road Generator tool is licensed under the [MIT License](https://opens
 
 ## About
 
-The Random Road Generator tool was developed by [Kamila Matuszak] and is hosted on GitHub at [link to your repository]. Feel free to visit the repository for more information and updates.
+The Random Road Generator tool was developed by [Kamila Matuszak] and is hosted on GitHub at [https://github.com/kamuuucka/RandomRoadGenerator/tree/main]. Feel free to visit the repository for more information and updates.
 
