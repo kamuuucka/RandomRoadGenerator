@@ -61,5 +61,5 @@ The Random Road Generator tool is licensed under the [MIT License](https://opens
 
 ## About
 
-The Random Road Generator tool was developed by [Kamila Matuszak] and is hosted on GitHub at [https://github.com/kamuuucka/RandomRoadGenerator/tree/main]. Feel free to visit the repository for more information and updates.
+The Random Road Generator tool was developed by [Kamila Matuszak] and is hosted on GitHub at [this repository](https://github.com/kamuuucka/RandomRoadGenerator/tree/main). Feel free to visit the repository for more information and updates.
 
