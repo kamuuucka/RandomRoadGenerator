@@ -59,7 +59,7 @@ Contributions to the Random Road Generator tool are welcome! If you have any ide
 
 The Random Road Generator tool is licensed under the [MIT License](https://opensource.org/licenses/MIT). You are free to modify, distribute, and use the tool in both commercial and non-commercial projects.
 
-## About
+### Footer
 
-The Random Road Generator tool was developed by [Kamila Matuszak] and is hosted on GitHub at [this repository](https://github.com/kamuuucka/RandomRoadGenerator/tree/main). Feel free to visit the repository for more information and updates.
+The Random Road Generator tool was developed by Kamila Matuszak and is hosted on GitHub at [this repository](https://github.com/kamuuucka/RandomRoadGenerator/tree/main). Feel free to visit the repository for more information and updates.
 
